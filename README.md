@@ -37,6 +37,21 @@ python predict.py crop.png --device mps --precision fp32
 **English**  
 Inputs should be detected and cropped text regions. `--device` supports `mps`, `cuda`, `cpu`, and automatic selection. MPS uses the optimized FP32 single-image path by default.
 
+## 推理样例 / Inference examples
+
+**中文**  
+下列文字裁剪由开放许可字体合成。表中输出来自当前可验证的 step-10000 MPS 暂存权重；公开前将使用 step-30000 发布权重重新推理。
+
+**English**  
+The following text crops were rendered with open-licensed fonts. The displayed outputs come from the currently verifiable step-10000 MPS staging weights; they will be regenerated with the step-30000 release weights before publication.
+
+| 输入 / Input | 参考文本 / Reference | 模型输出 / Model output |
+|---|---|---|
+| <img src="assets/demo/arigatou.png" width="300" alt="ありがとう"> | `ありがとう` | `ありがとう` |
+| <img src="assets/demo/dokidoki.png" width="95" alt="ドキドキ"> | `ドキドキ` | `ドキドキ` |
+| <img src="assets/demo/kiwotsukete.png" width="230" alt="気をつけて帰ってね"> | `気をつけて帰ってね` | `気をつけて帰ってね` |
+| <img src="assets/demo/thank_you.png" width="300" alt="Thank you!"> | `Thank you!` | `Thank you!` |
+
 ## Apple MPS：batch=1 / Apple MPS: batch 1
 
 | 项目 / Item | 便携路径 / Portable | 优化路径 / Optimized |
@@ -93,4 +108,3 @@ The step-30000 checkpoint reaches 75.0308% EM, 4.7944% micro-CER, and a 99.9911%
 
 **English**  
 This release primarily targets Japanese manga text crops. English training exposure is limited, and complex long text and sequences above 64 characters retain substantial room for improvement. Model weights use CC BY-NC-SA 4.0; code uses Apache 2.0. See `NOTICE.md` for provenance and attribution.
-
