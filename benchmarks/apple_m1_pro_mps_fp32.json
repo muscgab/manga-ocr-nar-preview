@@ -1,0 +1,38 @@
+{
+  "schema": "manga-ocr-nar-preview.mps-batch1-benchmark.v1",
+  "status": "passed",
+  "hardware": "Apple M1 Pro",
+  "torch": "2.10.0",
+  "device": "mps",
+  "precision": "fp32",
+  "cpu_fallback": false,
+  "source_checkpoint_step": 10000,
+  "images": 64,
+  "scope": "model forward only; the first input shape is warmed, while the first occurrence of each later dynamic grid includes its shape/cache setup; CPU-to-MPS pixel upload is excluded and image decode/preprocess is reported separately",
+  "preprocess": {
+    "mean_ms": 3.01115228648996,
+    "p50_ms": 2.497770998161286,
+    "p95_ms": 5.1642981823533765,
+    "min_ms": 1.6974579775705934,
+    "max_ms": 18.26199993956834
+  },
+  "portable": {
+    "mean_ms": 145.70869396993658,
+    "p50_ms": 129.23656246857718,
+    "p95_ms": 222.10187048185614,
+    "min_ms": 101.82037495542318,
+    "max_ms": 396.2648339802399
+  },
+  "optimized": {
+    "mean_ms": 89.9042956498306,
+    "p50_ms": 84.46772955358028,
+    "p95_ms": 112.82747334917073,
+    "min_ms": 75.17266692593694,
+    "max_ms": 162.5727079808712
+  },
+  "p50_speedup": 1.530011084133601,
+  "same_argmax_images": 64,
+  "same_decoded_images": 64,
+  "max_logits_abs": 5.1021575927734375e-05,
+  "note": "Compute-path benchmark used the available step-10000 model state. Re-run with the released step-30000 state before changing FP16 support."
+}

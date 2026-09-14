@@ -1,0 +1,29 @@
+{
+  "architectures": [
+    "MonkeyOCRv2VisionTransformer"
+  ],
+  "auto_map": {
+    "AutoConfig": "configuration_monkeyocrv2vit.MonkeyOCRv2VisionConfig",
+    "AutoModel": "modeling_monkeyocrv2_vision.MonkeyOCRv2VisionTransformer"
+  },
+  "vision_attn_implementation": "flash_attention_2",
+  "dtype": "bfloat16",
+  "embed_dim": 768,
+  "gradient_checkpointing": false,
+  "hidden_size": 1024,
+  "init_merger_std": 0.02,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_causal": false,
+  "model_type": "monkeyocr_vit",
+  "num_attention_heads": 12,
+  "num_channels": 3,
+  "num_hidden_layers": 12,
+  "pad_token_id": 151643,
+  "patch_size": 14,
+  "post_norm": true,
+  "rms_norm_eps": 1e-05,
+  "spatial_merge_size": 2,
+  "temporal_patch_size": 1,
+  "use_bias": false
+}

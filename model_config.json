@@ -1,0 +1,27 @@
+{
+  "architectures": ["MonkeyQ129OCR"],
+  "model_name": "manga-ocr-nar-preview",
+  "total_parameters": 195953570,
+  "encoder": {
+    "name": "MonkeyOCRv2-B",
+    "parameters": 113718528,
+    "width": 768,
+    "layers": 12,
+    "heads": 12
+  },
+  "decoder": {
+    "name": "R2",
+    "layers": 8,
+    "width": 768,
+    "heads": 12,
+    "ffn_width": 2048,
+    "activation": "SwiGLU",
+    "normalization": "Pre-RMSNorm"
+  },
+  "query_count": 129,
+  "body_character_limit": 128,
+  "vocabulary_size": 6816,
+  "eos_id": 6816,
+  "normalization_policy": "manga_nar_semantic_r3_6816_pause_20260909_v1"
+}
+
