@@ -1,44 +1,51 @@
 {
-  "schema": "manga-ocr-nar-preview-demo-v1",
+  "schema": "manga-ocr-nar-preview-demo-v2",
   "status": "release",
+  "purpose": "research and development result demonstration",
+  "source_dataset": "Manga109-s v2026",
   "source_checkpoint_step": 30000,
+  "terms": "https://manga109.github.io/manga109-project-website/en/",
   "images": [
     {
-      "image": "arigatou.png",
-      "layout": "horizontal",
-      "reference": "ありがとう",
-      "font": "Noto Serif JP 500",
-      "bytes": 18087,
-      "sha256": "69b6f62e2f5db3537751e15f8c8d81b68472c72c36f126fac0603ce150d9c6e0",
-      "prediction_step30000": "ありがとう"
+      "image": "manga109s_aisazu_002_00001d4d.png",
+      "work": "愛さずにはいられない",
+      "author": "よし まさこ",
+      "reference_nar": "たけてるたけてる!",
+      "prediction_step30000": "たけてるたけてる!",
+      "bytes": 73070,
+      "sha256": "8395d2f2fb588f2270d0904ab572dc7c2b7e1d232aa5db25c47326830505b4f2",
+      "attribution": "© よし まさこ; cited from Manga109-s"
     },
     {
-      "image": "dokidoki.png",
-      "layout": "vertical",
-      "reference": "ドキドキ",
-      "font": "Noto Sans JP 700",
-      "bytes": 12061,
-      "sha256": "e63bf2eb4206bc3049779d6a8b8575fa99a18776a1ac7613142dfb1ff10bf238",
-      "prediction_step30000": "ドキドキ"
+      "image": "manga109s_akkera_080_000031f7.png",
+      "work": "あっけら貫刃帖",
+      "author": "小林 ゆき",
+      "reference_nar": "……家でおとなしく勉強なんてできるかよ!",
+      "prediction_step30000": "……家でおとなしく勉強なんてできるかよ!",
+      "bytes": 32369,
+      "sha256": "271a9ca3cbbcc6c545c3be4790cf3a8839ed4e33d29cf11dbfc90afc67959539",
+      "attribution": "© 小林 ゆき; cited from Manga109-s"
     },
     {
-      "image": "kiwotsukete.png",
-      "layout": "multiline",
-      "reference": "気をつけて帰ってね",
-      "font": "Klee One 600",
-      "bytes": 15820,
-      "sha256": "56b01c521c19ea46a1bcb3123f678313b904eecfa80c79b90e34138a13c9d00f",
-      "prediction_step30000": "気をつけて帰ってね"
+      "image": "manga109s_akuhamu_039_00004438.png",
+      "work": "あくはむ",
+      "author": "新居 さとし",
+      "reference_nar": "ひねって頂いてるのは内緒です",
+      "prediction_step30000": "ひねって頂いてるのは内緒です",
+      "bytes": 58028,
+      "sha256": "4eccce0e41e98edbe4208f33795d40afc47997fad54da406db41291d55408fa0",
+      "attribution": "© 新居 さとし; cited from Manga109-s"
     },
     {
-      "image": "thank_you.png",
-      "layout": "horizontal",
-      "reference": "Thank you!",
-      "font": "Noto Serif JP 500",
-      "bytes": 11367,
-      "sha256": "99dba367daeac1492db2b593fce14fc8f2c357a659019fe04429e85bfb256922",
-      "prediction_step30000": "Thank you!"
+      "image": "manga109s_count3_094_00011514.png",
+      "work": "1・2・3でキメてあげる",
+      "author": "大宮 直依",
+      "reference_nar": "将来は武道館で歌って踊れるプロレスラーになりたいでーす♡",
+      "prediction_step30000": "将来は武道館で歌って踊れるプロレスラーになりたいでーす♡",
+      "bytes": 16949,
+      "sha256": "d102854c4f34b525999c6e1f689d51eb804bd11f79a6381aa3d53d8cde2832ce",
+      "attribution": "© 大宮 直依; cited from Manga109-s"
     }
   ],
-  "license": "Rendered examples use SIL Open Font License 1.1 fonts; no training or evaluation image is redistributed."
+  "notice": "Four cropped text regions from four works are shown with author attribution. No source page, annotation file, or evaluation manifest is distributed."
 }
