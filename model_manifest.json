@@ -1,0 +1,28 @@
+{
+  "schema": "manga-ocr-nar-preview-model-v1",
+  "source_checkpoint": {
+    "step": 30000,
+    "samples_seen": 7680000,
+    "bytes": 2351820699,
+    "sha256": "da915caa1834c8ec5e4c3f39f456aa2f54029082744d5ce957faf60f1a37dbb9"
+  },
+  "model": {
+    "filename": "model.safetensors",
+    "bytes": 783832592,
+    "sha256": "470163f61bea69fdc91e25b79143fbfa941a151f6cd798515bcd05a37c93c11b",
+    "parameters": 195953570,
+    "tensor_count": 176,
+    "dtype": "float32"
+  },
+  "contract": {
+    "vocab_sha256": "32d57552134d4cf170209ee3aa4cae977ac8cc6fc80f191a9e102b416ba79869",
+    "normalization_policy": "manga_nar_semantic_r3_6816_pause_20260909_v1",
+    "query_count": 129,
+    "body_tokens": 128,
+    "eos_id": 6816,
+    "pad_id": -100,
+    "encoder_sha256": "a9f059fc5a7afb6e9d2ad64b5db02dfc8e846d4b713460f4b3c0b2468a4d52e1",
+    "image_min_pixels": 50176,
+    "image_max_pixels": 200704
+  }
+}

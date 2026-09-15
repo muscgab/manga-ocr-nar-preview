@@ -40,10 +40,10 @@ Inputs should be detected and cropped text regions. `--device` supports `mps`, `
 ## 推理样例 / Inference examples
 
 **中文**  
-下列文字裁剪由开放许可字体合成。表中输出来自当前可验证的 step-10000 MPS 暂存权重；公开前将使用 step-30000 发布权重重新推理。
+下列文字裁剪由开放许可字体合成。表中输出来自 step-30000 发布权重的 MPS FP32 推理。
 
 **English**  
-The following text crops were rendered with open-licensed fonts. The displayed outputs come from the currently verifiable step-10000 MPS staging weights; they will be regenerated with the step-30000 release weights before publication.
+The following text crops were rendered with open-licensed fonts. The displayed outputs come from MPS FP32 inference with the step-30000 release weights.
 
 | 输入 / Input | 参考文本 / Reference | 模型输出 / Model output |
 |---|---|---|
@@ -56,22 +56,22 @@ The following text crops were rendered with open-licensed fonts. The displayed o
 
 | 项目 / Item | 便携路径 / Portable | 优化路径 / Optimized |
 |---|---:|---:|
-| P50 前向延迟 / P50 forward latency | 129.24 ms | **84.47 ms** |
-| P95 前向延迟 / P95 forward latency | 222.10 ms | **112.83 ms** |
-| P50 加速 / P50 speedup | 1.00× | **1.53×** |
+| P50 前向延迟 / P50 forward latency | 130.43 ms | **83.31 ms** |
+| P95 前向延迟 / P95 forward latency | 189.07 ms | **105.89 ms** |
+| P50 加速 / P50 speedup | 1.00× | **1.57×** |
 | 解码一致 / Decoded parity | — | **64/64** |
 
 **中文**  
-测试环境为 Apple M1 Pro、PyTorch 2.10.0、MPS、FP32，CPU fallback 关闭。64 张冻结 real-dev 图片逐张运行。时间包含同步后的模型前向；图片解码、约 2.50 ms 的预处理和 CPU-to-MPS 传输单独计算。优化路径保留宽高比和动态 patch 数，使用位置缓存及 Metal RMSNorm、RoPE、SwiGLU 内核。以上性能测试使用同架构的 step-10000 权重；公开的 step-30000 权重将在发布前按同一协议复核。
+测试环境为 Apple M1 Pro、PyTorch 2.10.0、MPS、FP32，CPU fallback 关闭。step-30000 发布权重在 64 张冻结 real-dev 图片上逐张运行。时间包含同步后的模型前向；图片解码、约 2.42 ms 的预处理和 CPU-to-MPS 传输单独计算。优化路径保留宽高比和动态 patch 数，使用位置缓存及 Metal RMSNorm、RoPE、SwiGLU 内核。便携路径和优化路径在全部 64 张图片上产生相同的逐位置 argmax 与解码文本。
 
 **English**  
-The benchmark uses an Apple M1 Pro, PyTorch 2.10.0, MPS, and FP32 with CPU fallback disabled. It runs 64 frozen real-dev images one at a time. Timings cover synchronized model forward; image decoding, approximately 2.50 ms preprocessing, and CPU-to-MPS transfer are measured separately. The optimized path preserves aspect ratio and dynamic patch count, with position caching and Metal RMSNorm, RoPE, and SwiGLU kernels. These performance numbers use the architecture-equivalent step-10000 weights; the public step-30000 weights will be checked with the same protocol before release.
+The benchmark uses an Apple M1 Pro, PyTorch 2.10.0, MPS, and FP32 with CPU fallback disabled. The step-30000 release weights run on 64 frozen real-dev images one at a time. Timings cover synchronized model forward; image decoding, approximately 2.42 ms preprocessing, and CPU-to-MPS transfer are measured separately. The optimized path preserves aspect ratio and dynamic patch count, with position caching and Metal RMSNorm, RoPE, and SwiGLU kernels. The portable and optimized paths produce identical per-position argmax values and decoded text on all 64 images.
 
 **中文**  
-FP16 优化路径达到 74.28 ms P50，64 张中有 63 张与 FP16 基线产生相同文本，当前保留为实验选项。
+先前的 step-10000 测试中，FP16 优化路径达到 74.28 ms P50，64 张中有 63 张与 FP16 基线产生相同文本。FP16 当前保留为实验选项。
 
 **English**  
-The optimized FP16 path reaches a 74.28 ms P50 and matches the FP16 baseline text on 63 of 64 images. It remains experimental.
+In an earlier step-10000 test, the optimized FP16 path reached a 74.28 ms P50 and matched the FP16 baseline text on 63 of 64 images. FP16 remains experimental.
 
 ## 模型与训练 / Model and training
 
