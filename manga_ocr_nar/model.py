@@ -221,7 +221,7 @@ def build_local_encoder_from_config(config_path: str | Path) -> MonkeyOCRv2Visio
     architecture from the checked-in runtime config before strict state load.
     """
 
-    raw = json.loads(Path(config_path).read_text())
+    raw = json.loads(Path(config_path).read_text(encoding="utf-8"))
     expected = dict(
         embed_dim=768,
         hidden_size=1024,

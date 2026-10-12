@@ -26,7 +26,7 @@ def main() -> None:
     args = parser.parse_args()
     root = args.model_dir.resolve()
     sys.path.insert(0, str(root))
-    manifest = json.loads((root / "model_manifest.json").read_text())
+    manifest = json.loads((root / "model_manifest.json").read_text(encoding="utf-8"))
     model = root / manifest["model"]["filename"]
     if model.stat().st_size != manifest["model"]["bytes"] or sha256(model) != manifest["model"]["sha256"]:
         raise ValueError("model identity mismatch")

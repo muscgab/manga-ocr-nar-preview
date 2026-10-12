@@ -50,14 +50,14 @@ class MangaOCRNar:
         optimized_mps: bool = True,
     ) -> None:
         self.model_dir = Path(model_dir).resolve()
-        manifest = json.loads((self.model_dir / "model_manifest.json").read_text())
+        manifest = json.loads((self.model_dir / "model_manifest.json").read_text(encoding="utf-8"))
         weights = self.model_dir / manifest["model"]["filename"]
         if weights.stat().st_size != manifest["model"]["bytes"] or _sha256(weights) != manifest["model"]["sha256"]:
             raise ValueError("model.safetensors does not match model_manifest.json")
         vocab_path = self.model_dir / "nar_vocabulary.json"
         if _sha256(vocab_path) != manifest["contract"]["vocab_sha256"]:
             raise ValueError("nar_vocabulary.json does not match the model contract")
-        vocabulary = json.loads(vocab_path.read_text())["characters"]
+        vocabulary = json.loads(vocab_path.read_text(encoding="utf-8"))["characters"]
         if len(vocabulary) != EOS_ID or len(set(vocabulary)) != EOS_ID:
             raise ValueError("invalid 6816-character vocabulary")
 

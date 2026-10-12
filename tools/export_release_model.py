@@ -55,7 +55,7 @@ def main() -> None:
         "contract": contract,
     }
     (args.output_dir / "model_manifest.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 
